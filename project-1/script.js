@@ -14,6 +14,8 @@ var nthBtn = document.getElementById("btn-north");
 var sthBtn = document.getElementById("btn-south");
 var eastBtn = document.getElementById("btn-east");
 var westBtn = document.getElementById("btn-west");
+var atkBtn = document.getElementById("atkBtn");
+var fleeBtn = document.getElementById("fleeBtn");
 
 
 if (currentRm === 0 && playerTurnCount === 0){ //just to ensure it is a new game
@@ -22,6 +24,8 @@ if (currentRm === 0 && playerTurnCount === 0){ //just to ensure it is a new game
     sthBtn.style.visibility = 'hidden';
     eastBtn.style.visibility = 'hidden';
     westBtn.style.visibility = 'hidden';
+    atkBtn.style.visibility = 'hidden';
+    fleeBtn.style.visibility = 'hidden';
 }
 
 
@@ -38,6 +42,8 @@ if (currentRm === 0 && playerTurnCount === 0){ //just to ensure it is a new game
 
 var navVis = function() { //check exits and updates movement buttons
     console.log('in navVis func, current room is: ' + currentRm);
+    atkBtn.style.visibility = 'hidden';
+    fleeBtn.style.visibility = 'hidden';
     rmExits = Object.keys(rooms[currentRm].exits);
     if (rmExits.includes("north")){
         console.log('North btn is visible');
@@ -74,10 +80,15 @@ var navVis = function() { //check exits and updates movement buttons
 nthBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.north;
             currentRm = newRm;
+            if (currentRm === 3 && Math.random() <= 0.8){
+                display(`this is a battle scene`);
+                enterBattle();
+            } else {
             display(`${rooms[currentRm].description}`);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
             return currentRm;
+            }
         });
 
 sthBtn.addEventListener("click", function(){

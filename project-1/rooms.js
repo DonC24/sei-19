@@ -2,7 +2,7 @@ let rooms = [{
     name:"room 1",
     color: "blue",
     description: "The room looks like this (array 0",
-    exits: {
+    exits: { //room is array number
         north: 1
     }
 },
