@@ -32,7 +32,7 @@ let rooms = [{
 {
     name: "The Forest",
     color: "orange",
-    imgsrc: 'images/courtforestyard.jpg',
+    imgsrc: 'images/forest.jpg',
     description: "You’re in the forest, maybe you should turn back before you get lost.",
     exits: {
         south: 2

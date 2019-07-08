@@ -17,7 +17,7 @@ var eastBtn = document.getElementById("btn-east");
 var westBtn = document.getElementById("btn-west");
 var atkBtn = document.getElementById("atkBtn");
 var fleeBtn = document.getElementById("fleeBtn");
-
+var charaBtn = document.getElementById("chara");
 
 if (currentRm === 0 && playerTurnCount === 0){ //just to ensure it is a new game
     display(`Hello adventurer. Welcome to the novice academy. How shall we address you?`);
@@ -129,3 +129,28 @@ document.getElementById("submit-btn").addEventListener("click", function(){ //fi
     mainImg.src= rooms[currentRm].imgsrc;
     navVis();
 });
+
+/*function on() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}*/
+
+var createScore = function(){
+    var scorediv = document.getElementById("overlay");
+    while (scorediv.hasChildNodes()){
+        scorediv.removeChild(scorediv.firstChild);
+    }
+    console.log("in create score");
+    var pEle = document.createElement("p");
+    pEle.innerHTML = `Player Name: ${playerName} <br> Player HP: ${charHp}/${charTotalHp} <br> Class: Novice <br> Currently there are no stats to display.`
+    scorediv.appendChild(pEle);
+    scorediv.style.display = "flex";
+};
+
+charaBtn.addEventListener("click", createScore);
+document.getElementById("overlay").addEventListener("click", function(){
+    document.getElementById("overlay").style.display = "none";
+})
