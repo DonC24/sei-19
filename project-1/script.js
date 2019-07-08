@@ -21,6 +21,7 @@ var fleeBtn = document.getElementById("fleeBtn");
 var charaBtn = document.getElementById("chara");
 
 if (currentRm === 0 && playerTurnCount === 0){ //just to ensure it is a new game
+    mainImg.src= "images/entrance-resized.jpg";
     display(`Hello adventurer. Welcome to the novice academy. How shall we address you?`);
     nthBtn.style.visibility = 'hidden';
     sthBtn.style.visibility = 'hidden';
@@ -154,7 +155,7 @@ nthBtn.addEventListener("click", function(){
             currentRm = newRm;
             console.log(`north bth is clicked. Current room is ${currentRm}`);
             if (currentRm === 3 && Math.random() <= 0.8){
-                mainImg.src= "images/forest-battle.jpg"; //battle img
+                mainImg.src= "images/forest-battle-resized.jpg"; //battle img
                 display(`this is a battle scene`);
                 enterBattle();
             } else {

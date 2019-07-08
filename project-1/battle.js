@@ -26,7 +26,6 @@ var enterBattle = function(){
 
 
 var attackMode = function() {
-    //mainImg.src= "images/forest-battle.jpg";
     console.log('Start attack mode');
 
     console.log("monster is: " + mob);
