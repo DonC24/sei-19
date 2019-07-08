@@ -1,10 +1,10 @@
 let monster = [{
     name: "Rabid Rat",
-    monHp: 30
+    monHp: 15
 },
 {
     name: "Rabid Cat",
-    monHp: 40
+    monHp: 30
 },
 {
     name: "Rabid Dog",
