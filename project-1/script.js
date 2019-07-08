@@ -9,7 +9,7 @@ var playerName = null;
 var currentRm = 0;
 var playerTurnCount = 0;
 var rmExits = Object.keys(rooms[currentRm].exits);
-// let roomNum = rooms[i];
+
 var nthBtn = document.getElementById("btn-north");
 var sthBtn = document.getElementById("btn-south");
 var eastBtn = document.getElementById("btn-east");
@@ -27,17 +27,6 @@ if (currentRm === 0 && playerTurnCount === 0){ //just to ensure it is a new game
     atkBtn.style.visibility = 'hidden';
     fleeBtn.style.visibility = 'hidden';
 }
-
-
-
-
-/*  if (x.style.visibility === 'hidden') {
-    x.style.visibility = 'visible';
-  } else {
-    x.style.visibility = 'hidden';
-};*/
-
-
 
 
 var navVis = function() { //check exits and updates movement buttons
