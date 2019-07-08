@@ -19,7 +19,7 @@ var fleeBtn = document.getElementById("fleeBtn");
 
 
 if (currentRm === 0 && playerTurnCount === 0){ //just to ensure it is a new game
-    display(`Hello there, what is your name? Welcome to ${rooms[0].name}.`);
+    display(`Hello adventurer. Welcome to the novice academy. How shall we address you?`);
     nthBtn.style.visibility = 'hidden';
     sthBtn.style.visibility = 'hidden';
     eastBtn.style.visibility = 'hidden';
@@ -73,7 +73,7 @@ nthBtn.addEventListener("click", function(){
                 display(`this is a battle scene`);
                 enterBattle();
             } else {
-            display(`${rooms[currentRm].description}`);
+            display(rooms[currentRm].description);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
             return currentRm;
@@ -83,7 +83,7 @@ nthBtn.addEventListener("click", function(){
 sthBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.south;
             currentRm = newRm;
-            display(`${rooms[currentRm].description}`);
+            display(rooms[currentRm].description);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
             return currentRm;
@@ -92,7 +92,7 @@ sthBtn.addEventListener("click", function(){
 eastBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.east;
             currentRm = newRm;
-            display(`${rooms[currentRm].description}`);
+            display(rooms[currentRm].description);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
             return currentRm;
@@ -101,7 +101,7 @@ eastBtn.addEventListener("click", function(){
 westBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.west;
             currentRm = newRm;
-            display(`${rooms[currentRm].description}`);
+            display(rooms[currentRm].description);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
             return currentRm;
@@ -110,14 +110,15 @@ westBtn.addEventListener("click", function(){
 document.getElementById("submit-btn").addEventListener("click", function(){ //first run only. waiting for player to input name
     var inputResults = document.getElementById('inputtxt').value;
     console.log("input value: " + inputResults);
-    while(playerName === null){
+    if(playerTurnCount === 0){
         playerName = inputResults;
         console.log("player name: " + playerName);
+        playerTurnCount++;
     }
-    display(`${rooms[currentRm].description}`);
+    var output = `Welcome ${playerName}! The novice academy will prepare you for the world outside. Feel free to explore our academy. Be warned that you might encounter some danger while on our grounds. <br> Now that we are done with our introductions, I shall take my leave.`
+    display(output);
     document.getElementById("submit-btn").style.visibility = 'hidden';
     document.getElementById("inputtxt").style.visibility = 'hidden';
     currentRm = 0;
     navVis();
-    playerTurnCount++;
 });

@@ -33,12 +33,11 @@ var enterBattle = function(){
             }, 3000);
 
         } else {
-            display(`You failed to flee...`); //why does failing to flee still proc navVis????
+            display(`You failed to flee...`);
             setTimeout(function(){
                 display(`Going in to battle! Get ready!`);
                 attackMode();
             }, 3000);
-            //setTimeout(attackMode, 5000);
         }
     });
 };
