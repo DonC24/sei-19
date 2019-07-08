@@ -8,6 +8,7 @@ var display = function( data ){
 var playerName = null;
 var currentRm = 0;
 var playerTurnCount = 0;
+var mainImg = document.getElementById("main-img-tag");
 var rmExits = Object.keys(rooms[currentRm].exits);
 
 var nthBtn = document.getElementById("btn-north");
@@ -70,10 +71,12 @@ nthBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.north;
             currentRm = newRm;
             if (currentRm === 3 && Math.random() <= 0.8){
+                mainImg.src= "images/forest-battle.jpg"; //battle img
                 display(`this is a battle scene`);
                 enterBattle();
             } else {
-            display(rooms[currentRm].description);
+            mainImg.src = rooms[currentRm].imgsrc;
+            display(rooms[currentRm].description); //set room image
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
             return currentRm;
@@ -83,6 +86,7 @@ nthBtn.addEventListener("click", function(){
 sthBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.south;
             currentRm = newRm;
+            mainImg.src= rooms[currentRm].imgsrc;
             display(rooms[currentRm].description);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
@@ -92,6 +96,7 @@ sthBtn.addEventListener("click", function(){
 eastBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.east;
             currentRm = newRm;
+            mainImg.src= rooms[currentRm].imgsrc;
             display(rooms[currentRm].description);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
@@ -101,6 +106,7 @@ eastBtn.addEventListener("click", function(){
 westBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.west;
             currentRm = newRm;
+            mainImg.src= rooms[currentRm].imgsrc;
             display(rooms[currentRm].description);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
@@ -120,5 +126,6 @@ document.getElementById("submit-btn").addEventListener("click", function(){ //fi
     document.getElementById("submit-btn").style.visibility = 'hidden';
     document.getElementById("inputtxt").style.visibility = 'hidden';
     currentRm = 0;
+    mainImg.src= rooms[currentRm].imgsrc;
     navVis();
 });

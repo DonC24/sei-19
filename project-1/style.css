@@ -1,5 +1,15 @@
 #output{
-	height: 400px;
+	height: 150px;
 	width: 900px;
 	background-color: #CCEEFF;
+}
+
+#main-img{
+	height: 450px;
+	width: 900px;
+}
+
+#main-img img{
+	/*max-width: 100%;*/
+	max-height: 100%;
 }

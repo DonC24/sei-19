@@ -29,6 +29,7 @@ var enterBattle = function(){
             currentRm = 2;
             setTimeout(function() {
                 display(rooms[currentRm].description);
+                mainImg.src= rooms[currentRm].imgsrc;
                 navVis();
             }, 3000);
 
@@ -44,6 +45,7 @@ var enterBattle = function(){
 
 
 var attackMode = function() {
+    mainImg.src= "images/forest-battle.jpg";
     if (mobHp > 0 && charHp > 0) {
         // atkBtn.addEventListener("click", attackMode);
         fleeBtn.style.visibility = 'hidden';
