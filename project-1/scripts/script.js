@@ -35,7 +35,6 @@ if (currentRm === 0 && playerTurnCount === 0){ //just to ensure it is a new game
     charaBtn.style.visibility = 'hidden';
 }
 
-
 var navVis = function() { //check exits and updates movement buttons
     console.log('in navVis func, current room is: ' + currentRm);
     charaBtn.style.visibility = 'visible';
@@ -181,7 +180,6 @@ window.onload = function() {
             if (currentRm === 3 && Math.random() <= 0.8){
                 mainImg.src= "images/forest-battle-resized.jpg"; //battle img
                 miniMap.src= rooms[currentRm].map;
-                display(`this is a battle scene`);
                 enterBattle();
             } else {
             mainImg.src = rooms[currentRm].imgsrc;

@@ -34,6 +34,7 @@ var enterBattle = function(){
     mobHp = monster[mob].monHp;
     monsterImg.src = monster[mob].imgsrc;
     monsterImg.style.visibility = 'visible';
+    display(`A ${monster[mob].name} suddenly attacks you!`);
     battleMode = true;
 
 };
@@ -84,7 +85,7 @@ var attackMode = function() {
             battleMode = false;
         } else {
             console.log("Character hp: " + charHp);
-            display(`You did ${dmg} damage! The ${monster[mob].name}'s hp is ${mobHp}. <br> The mob has hit you for ${mobDmg} damage! Your hp is now ${charHp}.`);
+            display(`You did ${dmg} damage! The ${monster[mob].name}'s hp is ${mobHp}. <br> The ${monster[mob].name} has hit you for ${mobDmg} damage! Your hp is now ${charHp}.`);
         }
     }
 };
