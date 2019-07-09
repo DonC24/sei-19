@@ -10,6 +10,16 @@ var hpReset = function(){
     charHp = charTotalHp; //reset character hp
 };
 
+var createRestart = function() {
+    var restartBtn = document.createElement("button"); //create restart button
+    restartBtn.innerText = "Restart the game"
+    restartBtn.setAttribute("id", "restartBtn");
+    document.getElementById("btns1").appendChild(restartBtn);
+    restartBtn.addEventListener("click", function(){location.reload();});
+};
+
+
+
 var enterBattle = function(){
     console.log("battle start. Room is: " + rooms[currentRm]);
     eastBtn.style.visibility = 'hidden';
@@ -60,22 +70,16 @@ var attackMode = function() {
         } else if (mobHp > 0 && charHp <= 0){
             display(`Sorry, you have died.`);
             atkBtn.style.visibility = 'hidden';
-            var createRestart = document.createElement("button"); //create restart button
-            createRestart.innerText = "Restart the game"
-            createRestart.setAttribute("id", "restartBtn");
-            document.body.appendChild(createRestart);
-            var restartBtn = document.getElementById("restartBtn");
-            restartBtn.addEventListener("click", function(){location.reload();});
+
+            createRestart();
+
             battleMode = false;
         } else if (mobHp <= 0 && charHp <=0){
             display(`Sorry, you have died, but at least the ${monster[mob].name} is dead too!`);
             atkBtn.style.visibility = 'hidden';
-            var createRestart = document.createElement("button"); //create restart button
-            createRestart.innerText = "Restart the game"
-            createRestart.setAttribute("id", "restartBtn");
-            document.body.appendChild(createRestart);
-            var restartBtn = document.getElementById("restartBtn");
-            restartBtn.addEventListener("click", function(){location.reload();});
+
+            createRestart();
+
             battleMode = false;
         } else {
             console.log("Character hp: " + charHp);

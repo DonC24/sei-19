@@ -61,15 +61,18 @@ p{
 }
 
 #allbtns{
-	width: 900px;
+	  display: flex;
+    justify-content: space-around;
+    width: 900px;
+    height: 500px;
 }
 
-#btns1{
-	display:inline-block;
+#mapdiv img{
+	width: 200px;
 }
+
 
 #movebtns{
-	display:inline-block;
 	height: 200px;
 	width: 200px;
 }

@@ -10,6 +10,7 @@ var playerName = null;
 var currentRm = 0;
 var playerTurnCount = 0;
 var mainImg = document.getElementById("main-img-tag");
+var miniMap = document.getElementById("mapimg");
 var rmExits = Object.keys(rooms[currentRm].exits);
 var battleMode = false; //check if in battle
 
@@ -87,6 +88,7 @@ document.getElementById("submit-btn").addEventListener("click", function(){ //fi
     document.getElementById("inputtxt").style.visibility = 'hidden';
     currentRm = 0;
     mainImg.src = rooms[currentRm].imgsrc;
+    miniMap.src= rooms[currentRm].map;
     navVis();
 });
 
@@ -137,6 +139,7 @@ var newCanFlee = function() { //calculate if can flee
                 console.log("battle flee")
                 display(rooms[currentRm].description);
                 mainImg.src= rooms[currentRm].imgsrc;
+                miniMap.src= rooms[currentRm].map;
                 navVis();
             }, 2000);
             battleMode = false;
@@ -146,7 +149,7 @@ var newCanFlee = function() { //calculate if can flee
             display(`You failed to flee...`);
             fleeBtn.style.visibility = 'hidden';
              setTimeout(function(){
-                display(`Going in to battle! Get ready!`);
+                //display(`Going in to battle! Get ready!`);
                 attackMode();
              }, 2000);
         }
@@ -175,10 +178,12 @@ window.onload = function() {
             console.log(`north bth is clicked. Current room is ${currentRm}`);
             if (currentRm === 3 && Math.random() <= 0.8){
                 mainImg.src= "images/forest-battle-resized.jpg"; //battle img
+                miniMap.src= rooms[currentRm].map;
                 display(`this is a battle scene`);
                 enterBattle();
             } else {
             mainImg.src = rooms[currentRm].imgsrc;
+            miniMap.src= rooms[currentRm].map;
             display(rooms[currentRm].description); //set room image
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
@@ -190,6 +195,7 @@ window.onload = function() {
             var newRm = rooms[currentRm].exits.south;
             currentRm = newRm;
             mainImg.src= rooms[currentRm].imgsrc;
+            miniMap.src= rooms[currentRm].map;
             display(rooms[currentRm].description);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
@@ -200,6 +206,7 @@ window.onload = function() {
             var newRm = rooms[currentRm].exits.east;
             currentRm = newRm;
             mainImg.src= rooms[currentRm].imgsrc;
+            miniMap.src= rooms[currentRm].map;
             display(rooms[currentRm].description);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
@@ -210,6 +217,7 @@ window.onload = function() {
             var newRm = rooms[currentRm].exits.west;
             currentRm = newRm;
             mainImg.src= rooms[currentRm].imgsrc;
+            miniMap.src= rooms[currentRm].map;
             display(rooms[currentRm].description);
             console.log('current room is: ' + currentRm + ' New room: ' + newRm);
             navVis();
