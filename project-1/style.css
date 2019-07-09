@@ -85,7 +85,7 @@ p{
 
 #btn-north{
 	position: relative;
-  left: 55px;
+  left: 70px;
 }
 
 #btn-south{
@@ -100,5 +100,5 @@ p{
 
 #btn-west{
 	position: relative;
-    top: 25px;
+    top: 9px;
 }
