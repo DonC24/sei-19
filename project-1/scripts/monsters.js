@@ -11,6 +11,6 @@ let monster = [{
 {
     name: "Rabid Dog",
     monHp: 50,
-    imgsrc: "images/rabid-dog.jpg"
+    imgsrc: "images/rabid-dog-resized.png"
 }
 ];

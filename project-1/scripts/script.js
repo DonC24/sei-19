@@ -11,6 +11,7 @@ var currentRm = 0;
 var playerTurnCount = 0;
 var mainImg = document.getElementById("main-img-tag");
 var miniMap = document.getElementById("mapimg");
+var monsterImg = document.getElementById("monster-img");
 var rmExits = Object.keys(rooms[currentRm].exits);
 var battleMode = false; //check if in battle
 
@@ -140,6 +141,7 @@ var newCanFlee = function() { //calculate if can flee
                 display(rooms[currentRm].description);
                 mainImg.src= rooms[currentRm].imgsrc;
                 miniMap.src= rooms[currentRm].map;
+                monsterImg.style.visibility = 'hidden';
                 navVis();
             }, 2000);
             battleMode = false;

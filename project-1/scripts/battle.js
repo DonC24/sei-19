@@ -32,17 +32,17 @@ var enterBattle = function(){
     mob = Math.floor(Math.random() * monster.length); //get random array number for total number of monsters
     console.log ("mob is: " + mob + "monster length: "+ monster.length);
     mobHp = monster[mob].monHp;
-
+    monsterImg.src = monster[mob].imgsrc;
+    monsterImg.style.visibility = 'visible';
     battleMode = true;
+
 };
 
 
 var attackMode = function() {
     console.log('Start attack mode');
-
     console.log("monster is: " + mob);
     if (mobHp > 0 && charHp > 0) {
-        // atkBtn.addEventListener("click", attackMode);
         fleeBtn.style.visibility = 'hidden';
         var dmg = Math.floor(Math.random() * 11 + 3); //your damage
         mobHp = mobHp - dmg;
@@ -53,6 +53,7 @@ var attackMode = function() {
         if (mobHp <= 0 && charHp > 0){
             console.log('In 1st if loop. mobHp is: ' + mobHp);
             display(`You've killed the ${monster[mob].name}!`);
+            monsterImg.style.visibility = 'hidden';
             atkBtn.style.visibility = 'hidden';
             hpReset();
             if (battleWin < allQuest[questCounter].battleNeeded ){

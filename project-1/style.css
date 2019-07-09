@@ -60,6 +60,12 @@ p{
 	font-family: 'Lora', serif;
 }
 
+#monsterdiv img{
+	  position: relative;
+    top: -200px;
+    left: 570px;
+}
+
 #allbtns{
 	  display: flex;
     justify-content: space-around;
