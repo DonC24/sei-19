@@ -80,7 +80,7 @@ document.getElementById("submit-btn").addEventListener("click", function(){ //fi
         console.log("player name: " + playerName);
         playerTurnCount++;
     }
-    var output = `Welcome ${playerName}! The novice academy will prepare you for the world outside. Feel free to explore our academy. Be warned that you might encounter some danger while on our grounds. <br> Now that we are done with our introductions, I shall take my leave.`
+    var output = `Welcome ${playerName}! The novice academy will prepare you for the world outside. Feel free to explore our academy, but be warned that you might encounter some danger while on our grounds. <br> The first quest that you shall receive is ${allQuest[questCounter].name}, please ${allQuest[questCounter].objective}. <br> I look forward to seeing you again.`
     display(output);
     document.getElementById("submit-btn").style.visibility = 'hidden';
     document.getElementById("inputtxt").style.visibility = 'hidden';
@@ -138,19 +138,19 @@ var newCanFlee = function() {
 
 window.onload = function() {
 
-        atkBtn.addEventListener("click", attackMode);
+        atkBtn.addEventListener("click", attackMode); //attack button
 
 
     // var fleeBtn = document.getElementById("fleeBtn");
-    fleeBtn.addEventListener("click", newCanFlee);
+    fleeBtn.addEventListener("click", newCanFlee); //flee button
 
-    charaBtn.addEventListener("click", createScore);
+    charaBtn.addEventListener("click", createScore); //score button
     document.getElementById("overlay").addEventListener("click", function(){
         document.getElementById("overlay").style.display = "none";
     })
 
     //movement button event listeners
-nthBtn.addEventListener("click", function(){
+    nthBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.north;
             currentRm = newRm;
             console.log(`north bth is clicked. Current room is ${currentRm}`);
@@ -167,7 +167,7 @@ nthBtn.addEventListener("click", function(){
             }
         });
 
-sthBtn.addEventListener("click", function(){
+    sthBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.south;
             currentRm = newRm;
             mainImg.src= rooms[currentRm].imgsrc;
@@ -177,7 +177,7 @@ sthBtn.addEventListener("click", function(){
             return currentRm;
         });
 
-eastBtn.addEventListener("click", function(){
+    eastBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.east;
             currentRm = newRm;
             mainImg.src= rooms[currentRm].imgsrc;
@@ -187,7 +187,7 @@ eastBtn.addEventListener("click", function(){
             return currentRm;
         });
 
-westBtn.addEventListener("click", function(){
+    westBtn.addEventListener("click", function(){
             var newRm = rooms[currentRm].exits.west;
             currentRm = newRm;
             mainImg.src= rooms[currentRm].imgsrc;

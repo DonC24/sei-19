@@ -2,6 +2,8 @@ var charHp = 100;
 var charTotalHp = 100;
 var mob = null;
 var mobHp = 0;
+var battleWin = 0;
+var questCounter = 0;
 //var clickAtk = atkBtn.addEventListener("click", attackMode);
 
 var hpReset = function(){
@@ -43,6 +45,15 @@ var attackMode = function() {
             display(`You've killed the ${monster[mob].name}!`);
             atkBtn.style.visibility = 'hidden';
             hpReset();
+            if (battleWin < allQuest[questCounter].battleNeeded ){
+                battleWin++;
+                console.log("battleWin: "+ battleWin);
+                if (battleWin === allQuest[questCounter].battleNeeded ){
+                    alert(`You've completed the quest ${allQuest[questCounter].name}!`)
+                    questComplete.push(allQuest[questCounter]);
+                    questCounter++;
+                }
+            }
             battleMode = false;
             console.log("battle ended")
             navVis();
