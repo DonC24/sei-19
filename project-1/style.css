@@ -16,7 +16,7 @@
 #overlay {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
-  width: 920px; /* Full width (cover the whole page) */
+  width: 900px; /* Full width (cover the whole page) */
   height: 800px; /* Full height (cover the whole page) */
   top: 0;
   margin: 0 auto;
@@ -29,12 +29,12 @@
   cursor: pointer; /* Add a pointer on hover */
 }
 
-#overlay p{
+#overlay span{
 	margin: 0 auto;
 }
 
 #main-wrap{
-	margin: auto;
+	margin: 0 auto;
 	width: 50%;
 }
 

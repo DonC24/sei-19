@@ -5,6 +5,7 @@ var display = function( data ){
     output.innerHTML = data;
 };
 
+var pEle = null;
 var playerName = null;
 var currentRm = 0;
 var playerTurnCount = 0;
@@ -80,7 +81,7 @@ document.getElementById("submit-btn").addEventListener("click", function(){ //fi
         console.log("player name: " + playerName);
         playerTurnCount++;
     }
-    var output = `Welcome ${playerName}! The novice academy will prepare you for the world outside. Feel free to explore our academy, but be warned that you might encounter some danger while on our grounds. <br> The first quest that you shall receive is ${allQuest[questCounter].name}, please ${allQuest[questCounter].objective}. <br> I look forward to seeing you again.`
+    var output = `<p>Welcome ${playerName}! The novice academy will prepare you for the world outside. Feel free to explore our academy, but be warned that you might encounter some danger while on our grounds.</p> <p>The first quest that you shall receive is ${allQuest[questCounter].name}, please ${allQuest[questCounter].objective}.</p> <p>I look forward to seeing you again.</p>`
     display(output);
     document.getElementById("submit-btn").style.visibility = 'hidden';
     document.getElementById("inputtxt").style.visibility = 'hidden';
@@ -89,20 +90,39 @@ document.getElementById("submit-btn").addEventListener("click", function(){ //fi
     navVis();
 });
 
+var completed = function() {
+        pEle = document.createElement("span");
+        pEle.innerHTML = `<h3>Player Name: ${playerName}</h3> <br> <p>Player HP: ${charHp}/${charTotalHp} <br> Class: Novice <br> Currently there are no stats to display.</p> <hr> <h3>Quest Log</h3> <br> Name: ${allQuest[questCounter].name} <br> Quest: ${allQuest[questCounter].objective} <br> <br> <h3>Completed Quests</h3> <br> `
+        var ulEle = document.createElement("ul");
+        for (let i = 0; i < questComplete.length; i++){
+            var liEle = document.createElement("li");
+            console.log(questComplete[i].name);
+            console.log(questComplete[i].objective);
+            liEle.innerHTML = `Name: ${questComplete[i].name} <br> Quest: ${questComplete[i].objective}`;
+            ulEle.appendChild(liEle);
+            ulEle.style.listStyleType = "none";
+        }
+        pEle.appendChild(ulEle);
 
-var createScore = function(){ //calculate if can flee
+    }
+
+var createScore = function(){ //create score sheet
     var scorediv = document.getElementById("overlay");
     while (scorediv.hasChildNodes()){
         scorediv.removeChild(scorediv.firstChild);
     }
+
     console.log("in create score");
-    var pEle = document.createElement("p");
-    pEle.innerHTML = `Player Name: ${playerName} <br> Player HP: ${charHp}/${charTotalHp} <br> Class: Novice <br> Currently there are no stats to display.`
+    //var pEle = document.createElement("p");
+    completed();
+
     scorediv.appendChild(pEle);
     scorediv.style.display = "flex";
+
+
 };
 
-var newCanFlee = function() {
+var newCanFlee = function() { //calculate if can flee
     if (battleMode === true) {
         var canFlee = Math.random();
         console.log(canFlee);
