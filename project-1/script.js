@@ -86,7 +86,7 @@ document.getElementById("submit-btn").addEventListener("click", function(){ //fi
     document.getElementById("submit-btn").style.visibility = 'hidden';
     document.getElementById("inputtxt").style.visibility = 'hidden';
     currentRm = 0;
-    mainImg.src= rooms[currentRm].imgsrc;
+    mainImg.src = rooms[currentRm].imgsrc;
     navVis();
 });
 
@@ -113,7 +113,7 @@ var createScore = function(){ //create score sheet
     }
 
     console.log("in create score");
-    //var pEle = document.createElement("p");
+
     completed();
 
     scorediv.appendChild(pEle);
@@ -132,7 +132,6 @@ var newCanFlee = function() { //calculate if can flee
             display(`You run for your life!`);
             fleeBtn.style.visibility = 'hidden';
             atkBtn.style.visibility = 'hidden';
-            //hpReset();
             currentRm = 2;
             setTimeout(function() {
                 console.log("battle flee")
@@ -217,3 +216,18 @@ window.onload = function() {
             return currentRm;
         });
 }
+
+
+
+/*function goto(direction){
+    console.log('went to '+direction)
+    direction = 'west'
+    exits[direction]
+    exits.west
+}
+
+gotoWestFunction = goto.bind(null, 'west')
+EQUIVALENT TO
+function gotoWestFunction(direction=west){
+    blahblah
+}*/

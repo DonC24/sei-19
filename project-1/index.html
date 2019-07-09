@@ -17,25 +17,42 @@
                 <source src="audio/ff8-blue-fields.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
-            <div id="main-img"><img id="main-img-tag"></div>
-            <p id="output"></p>
+            <div id="main-img">
+                <img id="main-img-tag">
+                <div id="monster-img">
+                </div>
+            </div>
+<!--             <div id ="outputdiv">
+                <div id="outputP"> -->
+                    <p id="output"></p><!-- </div>
+            </div> -->
+        </div>
+        <div id="allbtns">
+            <div id="btns1">
             <button id="submit-btn">Submit</button>
             <button id="chara">Score</button>
-            <button id="btn-north">North</button>
-            <button id="btn-south">South</button>
-            <button id="btn-east">East</button>
-            <button id="btn-west">West</button>
-            <input type="text" id="inputtxt"><br>
+
+            <input type="text" id="inputtxt">
+            <br>
+            <br>
             <button id="atkBtn">Attack</button>
             <button id="fleeBtn">Flee</button>
+            </div>
+            <div id="movebtns">
+                <button id="btn-north">North</button>
+                <button id="btn-south">South</button>
+                <button id="btn-east">East</button>
+                <button id="btn-west">West</button>
+            </div>
         </div>
+
     </div>
 
 
     <script src="rooms.js"></script>
-    <script src="quests.js"></script>
     <script src="monsters.js"></script>
     <script src="battle.js"></script>
+    <script src="quests.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
