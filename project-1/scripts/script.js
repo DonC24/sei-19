@@ -44,31 +44,39 @@ var navVis = function() { //check exits and updates movement buttons
     if (rmExits.includes("north")){
         console.log('North btn is visible');
         //console.log("north btn. current room is " + currentRm);
-        nthBtn.style.visibility = 'visible';
+        // nthBtn.style.visibility = 'visible';
+        nthBtn.disabled = false;
     } else {
         console.log('North btn is not visible');
-        nthBtn.style.visibility = 'hidden';
+        //nthBtn.style.visibility = 'hidden';
+        nthBtn.disabled = true;
     }
     if (rmExits.includes("south")){
         console.log('south btn is visible');
-        sthBtn.style.visibility = 'visible';
+        // sthBtn.style.visibility = 'visible';
+        sthBtn.disabled = false;
     } else {
         console.log('south btn is not visible');
-        sthBtn.style.visibility = 'hidden';
+        //sthBtn.style.visibility = 'hidden';
+        sthBtn.disabled = true;
     }
     if (rmExits.includes("east")){
         console.log('east btn is visible');
-        eastBtn.style.visibility = 'visible';
+        // eastBtn.style.visibility = 'visible';
+        eastBtn.disabled = false;
     } else {
         console.log('east btn is not visible');
-        eastBtn.style.visibility = 'hidden';
+        //eastBtn.style.visibility = 'hidden';
+        eastBtn.disabled = true;
     }
     if (rmExits.includes("west")){
         console.log('west btn is visible');
-        westBtn.style.visibility = 'visible';
+        // westBtn.style.visibility = 'visible';
+        westBtn.disabled = false;
     } else {
         console.log('west btn is not visible');
-        westBtn.style.visibility = 'hidden';
+        //westBtn.style.visibility = 'hidden';
+        westBtn.disabled = true;
     }
 };
 
@@ -82,10 +90,14 @@ document.getElementById("submit-btn").addEventListener("click", function(){ //fi
         console.log("player name: " + playerName);
         playerTurnCount++;
     }
-    var output = `<p>Welcome ${playerName}! The novice academy will prepare you for the world outside. Feel free to explore our academy, but be warned that you might encounter some danger while on our grounds.</p> <p>The first quest that you shall receive is ${allQuest[questCounter].name}, please ${allQuest[questCounter].objective}.</p> <p>I look forward to seeing you again.</p>`
+    var output = `Welcome ${playerName}! The novice academy will prepare you for the world outside. Feel free to explore our academy, but be warned that you might encounter some danger while on our grounds. <p>The first quest that you shall receive is ${allQuest[questCounter].name}, please ${allQuest[questCounter].objective}.</p> <p>I look forward to seeing you again.</p>`
     display(output);
     document.getElementById("submit-btn").style.visibility = 'hidden';
     document.getElementById("inputtxt").style.visibility = 'hidden';
+    nthBtn.style.visibility = 'visible';
+    sthBtn.style.visibility = 'visible';
+    eastBtn.style.visibility = 'visible';
+    westBtn.style.visibility = 'visible';
     currentRm = 0;
     mainImg.src = rooms[currentRm].imgsrc;
     miniMap.src= rooms[currentRm].map;

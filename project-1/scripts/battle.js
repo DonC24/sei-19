@@ -56,6 +56,10 @@ var attackMode = function() {
             display(`You've killed the ${monster[mob].name}!`);
             monsterImg.style.visibility = 'hidden';
             atkBtn.style.visibility = 'hidden';
+            nthBtn.style.visibility = 'visible';
+            sthBtn.style.visibility = 'visible';
+            eastBtn.style.visibility = 'visible';
+            westBtn.style.visibility = 'visible';
             hpReset();
             if (battleWin < allQuest[questCounter].battleNeeded ){
                 battleWin++;
