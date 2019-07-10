@@ -1,7 +1,14 @@
+/*body{
+	background-image: url("images/autumnbg.jpg");
+}*/
+
 #main-wrap{
 	margin: 0 auto;
 	width: 50%;
+/*	background-color: #F5A9F2;
+	text-align: center;*/
 }
+
 
 #output{
 	height: 150px;

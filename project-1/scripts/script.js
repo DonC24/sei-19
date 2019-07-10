@@ -153,6 +153,10 @@ var newCanFlee = function() { //calculate if can flee
                 mainImg.src= rooms[currentRm].imgsrc;
                 miniMap.src= rooms[currentRm].map;
                 monsterImg.style.visibility = 'hidden';
+                nthBtn.style.visibility = 'visible';
+                sthBtn.style.visibility = 'visible';
+                eastBtn.style.visibility = 'visible';
+                westBtn.style.visibility = 'visible';
                 navVis();
             }, 2000);
             battleMode = false;
